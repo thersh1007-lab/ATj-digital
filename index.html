@@ -252,27 +252,112 @@
     .bottom-cta .lead{margin-bottom:20px}
 
     /* ── Footer ───────────────────────────────────────────── */
-    .site-footer{
-      border-top:1px solid rgba(255,255,255,.07);padding:40px 0 24px;
-      font-size:14px;color:rgba(255,255,255,.45);
+    .atj-global-footer{
+      --navy0:#020617;--navy1:#030B20;--navy2:#061A3A;
+      --ink:rgba(255,255,255,.94);--muted:rgba(255,255,255,.70);--muted2:rgba(255,255,255,.56);
+      --line:rgba(255,255,255,.10);--glass:rgba(255,255,255,.05);
+      --gold:#F3C06A;--gold2:#D99A3B;
+      --shadow:0 24px 90px rgba(0,0,0,.55);--shadow2:0 14px 44px rgba(0,0,0,.45);
+      --font-display:"Space Grotesk",Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      --font-body:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      font-family:var(--font-body);color:var(--ink);width:100%;position:relative;isolation:isolate;
     }
-    .footer-grid{
-      display:flex;justify-content:space-between;align-items:flex-start;
-      gap:32px;flex-wrap:wrap;margin-bottom:28px;
+    .atj-global-footer *{box-sizing:border-box}
+    .atj-global-footer a{color:inherit;text-decoration:none}
+    .atj-global-footer a:hover{color:rgba(243,192,106,.95)}
+    .atj-global-footer .atj-foot{
+      border-top:1px solid rgba(255,255,255,.08);
+      background:
+        radial-gradient(900px 520px at 10% 10%,rgba(118,199,255,.10),transparent 62%),
+        radial-gradient(840px 520px at 92% 0%,rgba(243,192,106,.10),transparent 62%),
+        linear-gradient(180deg,rgba(3,11,32,.65),rgba(2,6,23,.98));
     }
-    .footer-brand .wordmark{margin-bottom:6px}
-    .footer-links{display:flex;gap:24px;flex-wrap:wrap}
-    .footer-links a{color:rgba(255,255,255,.45);transition:color .15s}
-    .footer-links a:hover{color:var(--accent)}
-    .footer-copy{
-      padding-top:20px;border-top:1px solid rgba(255,255,255,.07);
-      display:flex;justify-content:space-between;align-items:center;
-      gap:16px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,.30);
+    .atj-global-footer .foot-wrap{width:min(1180px,92vw);margin:0 auto;padding:44px 0 22px}
+    .atj-global-footer .topband{
+      display:grid;gap:16px;grid-template-columns:1fr;align-items:center;
+      border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.03);
+      border-radius:28px;padding:18px;box-shadow:var(--shadow2);
     }
+    @media(min-width:880px){.atj-global-footer .topband{grid-template-columns:1fr auto}}
+    .atj-global-footer .topband h3{
+      margin:0;font-family:var(--font-display);font-weight:700;
+      letter-spacing:-.03em;font-size:20px;line-height:1.2;
+    }
+    .atj-global-footer .topband p{
+      margin:6px 0 0;color:rgba(255,255,255,.70);font-size:14px;line-height:1.55;max-width:70ch;
+    }
+    .atj-global-footer .cta-wrap{
+      display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:flex-end;
+    }
+    .atj-global-footer .foot-btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:10px 14px;border-radius:999px;font-weight:900;font-size:13px;
+      letter-spacing:.01em;border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.03);color:rgba(255,255,255,.92);
+      transition:transform .18s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease;
+      white-space:nowrap;text-decoration:none;
+    }
+    .atj-global-footer .foot-btn:hover{transform:translateY(-1px);border-color:rgba(243,192,106,.25);background:rgba(255,255,255,.05)}
+    .atj-global-footer .foot-btn.primary{
+      border-color:transparent;background:linear-gradient(135deg,var(--gold),var(--gold2));
+      color:#071022!important;box-shadow:0 18px 60px rgba(243,192,106,.18);
+    }
+    .atj-global-footer .foot-btn.primary:hover{box-shadow:0 26px 96px rgba(243,192,106,.20)}
+    .atj-global-footer .ico{
+      width:30px;height:30px;border-radius:999px;display:grid;place-items:center;
+      background:rgba(7,16,34,.18);border:1px solid rgba(255,255,255,.16);
+      color:rgba(7,16,34,.92);line-height:1;
+    }
+    .atj-global-footer .cols{
+      display:grid;gap:28px;grid-template-columns:1fr;margin-top:22px;padding-top:26px;
+    }
+    @media(min-width:860px){.atj-global-footer .cols{grid-template-columns:2fr 1fr 1fr 1fr}}
+    .atj-global-footer .col h4{
+      margin:0 0 10px;font-family:var(--font-display);font-weight:700;
+      letter-spacing:-.02em;font-size:14px;color:rgba(255,255,255,.95);
+    }
+    .atj-global-footer .col ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+    .atj-global-footer .col li a{color:rgba(255,255,255,.76);font-weight:800;font-size:13px;letter-spacing:.01em}
+    .atj-global-footer .col li a:hover{color:rgba(243,192,106,.95)}
+    .atj-global-footer .brand{display:flex;gap:14px;align-items:flex-start}
+    .atj-global-footer .org{
+      font-family:var(--font-display);font-weight:700;font-size:18px;
+      letter-spacing:-.02em;margin:0;
+    }
+    .atj-global-footer .tagline{
+      margin:4px 0 0;color:rgba(255,255,255,.62);font-weight:900;
+      letter-spacing:.12em;text-transform:uppercase;font-size:11px;
+    }
+    .atj-global-footer .contact{margin-top:12px;color:rgba(255,255,255,.70);font-size:14px;line-height:1.55}
+    .atj-global-footer .contact address{font-style:normal;margin:0 0 10px}
+    .atj-global-footer .contact a{color:rgba(255,255,255,.90);text-decoration:underline;text-underline-offset:3px}
+    .atj-global-footer .social{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .atj-global-footer .social a{
+      display:inline-flex;padding:8px;border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);background:rgba(2,6,23,.18);
+      transition:transform .18s ease,border-color .18s ease,background .18s ease;
+    }
+    .atj-global-footer .social a:hover{transform:translateY(-1px);border-color:rgba(243,192,106,.22);background:rgba(255,255,255,.04)}
+    .atj-global-footer .kicker{
+      display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;
+      border-top:1px solid rgba(255,255,255,.08);margin-top:26px;padding-top:16px;
+      color:rgba(255,255,255,.56);font-size:13px;
+    }
+    .atj-global-footer .legal{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+    .atj-global-footer .legal a{color:rgba(255,255,255,.72);font-weight:900}
+    .atj-global-footer .legal a:hover{color:rgba(243,192,106,.95)}
+    .atj-global-footer .to-top{display:inline-flex;align-items:center;gap:8px;cursor:pointer}
     .built{
       background:linear-gradient(135deg,#F3C06A,#76C7FF);
       -webkit-background-clip:text;background-clip:text;color:transparent;
       font-weight:900;letter-spacing:.01em;
+    }
+    @media(max-width:520px){
+      .atj-global-footer .foot-nav-grid nav.col ul{display:none}
+      .atj-global-footer .foot-nav-grid nav.col.is-open ul{display:grid}
+      .atj-global-footer .foot-nav-grid nav.col h4{cursor:pointer}
+      .atj-global-footer .foot-nav-grid nav.col h4::after{content:'+';float:right;color:var(--gold);font-size:16px}
+      .atj-global-footer .foot-nav-grid nav.col.is-open h4::after{content:'\2212'}
     }
   </style>
 
@@ -752,26 +837,134 @@
   <!-- ═══════════════════════════════════════════════════════
        10. FOOTER
        ═══════════════════════════════════════════════════════ -->
-  <footer class="site-footer">
-    <div class="wrap">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="wordmark" style="margin-bottom:6px">ATJ<span>.digital</span></div>
-          <p style="font-size:13px;color:rgba(255,255,255,.35);max-width:280px;line-height:1.5">
-            An all-in-one business platform by Automate the Journey, Inc.
-          </p>
+  <footer class="atj-global-footer" role="contentinfo" aria-label="Site footer" data-atj-global-footer>
+    <div class="atj-foot">
+      <div class="foot-wrap">
+
+        <!-- Promo / CTA band -->
+        <div class="topband">
+          <div>
+            <h3>Ready to replace the tool sprawl?</h3>
+            <p>CRM, funnels, email, SMS, calendars, and automation — all under one login. Start your free 30-day trial today.</p>
+          </div>
+          <div class="cta-wrap">
+            <a class="foot-btn primary" href="https://automatethejourney.com/marketing-automation/signup">
+              Start Free Trial <span class="ico">→</span>
+            </a>
+            <a class="foot-btn" href="https://automatethejourney.com/go_high_level/book-call-2">
+              Book a Call
+            </a>
+          </div>
         </div>
-        <div class="footer-links">
-          <a href="https://automatethejourney.com/blog/">Blog</a>
-          <a href="https://automatethejourney.com/go_high_level/about">About</a>
-          <a href="https://automatethejourney.com/marketing-automation/contact">Contact</a>
-          <a href="https://automatethejourney.com/terms.html">Terms</a>
-          <a href="https://automatethejourney.com/privacy.html">Privacy</a>
+
+        <!-- Columns -->
+        <div class="cols">
+
+          <!-- Brand + Contact -->
+          <div class="col">
+            <div class="brand">
+              <div>
+                <p class="org">Automate the Journey, Inc.</p>
+                <p class="tagline">Customer Journey Automation</p>
+
+                <div class="contact">
+                  <address>
+                    30190 US 19 N<br/>
+                    Clearwater, FL 33761
+                  </address>
+
+                  <div>
+                    <a href="tel:+18132855044">813-285-5044</a>
+                    &nbsp;•&nbsp;
+                    <a href="https://automatethejourney.com/marketing-automation/contact">Contact</a>
+                  </div>
+
+                  <!-- Social -->
+                  <div class="social" aria-label="Social links">
+                    <a aria-label="Facebook" href="https://www.facebook.com/automatethejourney" target="_blank" rel="noopener" title="Facebook">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14.5 8H17V5h-2.5C12 5 11 6.6 11 9v2H9v3h2v5h3v-5h2.2l.3-3H14v-1.6c0-.8.2-1.4 1.5-1.4Z" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </a>
+                    <a aria-label="Instagram" href="https://www.instagram.com/automate_the_journey/" target="_blank" rel="noopener" title="Instagram">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+                    </a>
+                    <a aria-label="TikTok" href="https://www.tiktok.com/@automatethejourney" target="_blank" rel="noopener" title="TikTok">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 5.5c.7 1 1.8 1.9 3 2.2V11c-1.7 0-3.3-.6-4.5-1.6V15a5 5 0 1 1-5-5c.4 0 .8 0 1.1.1v3.2a2 2 0 1 0 1.9 2V3h3.5v2.5Z" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </a>
+                    <a aria-label="LinkedIn" href="https://www.linkedin.com/in/timhersh/" target="_blank" rel="noopener" title="LinkedIn">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5Z" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 9h3v11h-3zM10 9h2.8v1.6h.04c.39-.74 1.34-1.52 2.76-1.52 2.95 0 3.5 1.94 3.5 4.47V20h-3v-5.2c0-1.24-.02-2.84-1.73-2.84-1.74 0-2 1.36-2 2.75V20h-3V9Z" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </a>
+                    <a aria-label="YouTube" href="https://www.youtube.com/@AutomatetheJourney" title="YouTube" target="_blank" rel="noopener">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 12s0-3.2-.4-4.7c-.2-.8-.8-1.4-1.6-1.6C18.5 5.3 12 5.3 12 5.3s-6.5 0-8 .4c-.8.2-1.4.8-1.6 1.6C2 8.8 2 12 2 12s0 3.2.4 4.7c.2.8.8 1.4 1.6 1.6 1.5.4 8 .4 8 .4s6.5 0 8-.4c.8-.2 1.4-.8 1.6-1.6.4-1.5.4-4.7.4-4.7Z" stroke="currentColor" stroke-width="1.5"/><path d="M10 15.5v-7l6 3.5-6 3.5Z" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="foot-nav-grid">
+
+            <!-- Platform -->
+            <nav class="col" aria-label="Platform">
+              <h4>Platform</h4>
+              <ul>
+                <li><a href="#features">All Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="https://app.atj.digital">Login</a></li>
+                <li><a href="https://automatethejourney.com/marketing-automation/signup">Start Free Trial</a></li>
+              </ul>
+            </nav>
+
+            <!-- Solutions -->
+            <nav class="col" aria-label="Solutions">
+              <h4>Solutions</h4>
+              <ul>
+                <li><a href="https://automatethejourney.com/marketing-automation/products">All Products</a></li>
+                <li><a href="https://automatethejourney.com/marketing-automation/seo-pulse">SEO Pulse</a></li>
+                <li><a href="https://automatethejourney.com/marketing-automation/visitor-id">Visitor ID Pro</a></li>
+                <li><a href="https://automatethejourney.com/marketing-automation/lead-enrichment">AI Lead Enrichment</a></li>
+                <li><a href="https://automatethejourney.com/marketing-automation/seo-blog-engine">SEO Blog Engine</a></li>
+              </ul>
+            </nav>
+
+            <!-- Company -->
+            <nav class="col" aria-label="Company">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="https://automatethejourney.com/go_high_level/about">About</a></li>
+                <li><a href="https://automatethejourney.com/marketing-automation/contact">Contact</a></li>
+                <li><a href="https://automatethejourney.com/go_high_level/book-call-2">Book a Call</a></li>
+                <li><a href="https://automatethejourney.com/blog/">Blog</a></li>
+                <li><a href="https://automatethejourney.com/portfolio/">Portfolio</a></li>
+              </ul>
+            </nav>
+
+            <!-- Legal -->
+            <nav class="col" aria-label="Legal">
+              <h4>Legal</h4>
+              <ul>
+                <li><a href="https://automatethejourney.com/terms.html">Terms of Service</a></li>
+                <li><a href="https://automatethejourney.com/privacy.html">Privacy Policy</a></li>
+                <li><a href="https://automatethejourney.com/security.html">Security</a></li>
+                <li><a href="https://automatethejourney.com/trust-center.html">Trust Center</a></li>
+                <li><a href="https://automatethejourney.com/guarantee.html">ROI Guarantee</a></li>
+                <li><a href="https://automatethejourney.com/dpa.html">Data Processing</a></li>
+              </ul>
+            </nav>
+
+          </div>
+
         </div>
-      </div>
-      <div class="footer-copy">
-        <span>&copy; <span id="footYear"></span> Automate the Journey, Inc. All rights reserved.</span>
-        <span class="built">Powered by GoHighLevel</span>
+
+        <!-- Bottom bar -->
+        <div class="kicker">
+          <div>&copy; <span id="footYear"></span> Automate the Journey, Inc. All rights reserved.</div>
+          <div class="legal">
+            <span class="built">Built with GoHighLevel + AI Teammates&trade;</span>
+            <a class="to-top" href="#top" aria-label="Back to top">Back to top &uarr;</a>
+          </div>
+        </div>
+
       </div>
     </div>
   </footer>
@@ -782,6 +975,17 @@
     /* Footer year */
     var y=document.getElementById('footYear');
     if(y) y.textContent=new Date().getFullYear();
+
+    /* Footer accordion on mobile */
+    var foot=document.querySelector('[data-atj-global-footer]');
+    if(foot){
+      foot.querySelectorAll('.foot-nav-grid nav.col h4').forEach(function(h4){
+        h4.addEventListener('click',function(){
+          if(window.innerWidth>520) return;
+          h4.parentElement.classList.toggle('is-open');
+        });
+      });
+    }
 
     /* Hamburger toggle */
     var btn=document.querySelector('.hamburger');
