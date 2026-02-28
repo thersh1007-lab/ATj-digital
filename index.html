@@ -1,0 +1,856 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+
+  <title>ATJ.digital — One Platform. Every Client Touchpoint.</title>
+  <meta name="description" content="CRM, funnels, email, SMS, calendars, automation, and AI — all in one platform. Replace 6+ tools for $97/mo. 30-day free trial." />
+  <link rel="canonical" href="https://atj.digital" />
+  <meta property="og:title" content="ATJ.digital — One Platform. Every Client Touchpoint." />
+  <meta property="og:description" content="CRM, funnels, email, SMS, calendars, automation, and AI — all in one platform. Replace 6+ tools for $97/mo. 30-day free trial." />
+  <meta property="og:url" content="https://atj.digital" />
+  <meta property="og:image" content="https://automatethejourney.com/assets/tim.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ATJ.digital" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Outfit:wght@600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ── Design System ───────────────────────────────────── */
+    :root{
+      --ink:rgba(255,255,255,.88);
+      --muted:rgba(255,255,255,.50);
+      --accent:#F3C06A;
+      --soft:#0b1120;
+      --line:rgba(255,255,255,.09);
+      --wrap:1140px;
+      --r:16px;
+      --gap:16px;
+      --shadow:0 10px 30px rgba(0,0,0,.40);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    html,body{overflow-x:hidden}
+    body{
+      font:400 16px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink);background:#020617;
+    }
+    img{display:block;max-width:100%;height:auto}
+    a{color:inherit;text-decoration:none}
+
+    h1,h2,h3{
+      font-family:"Space Grotesk",Outfit,Inter,system-ui,sans-serif;
+      font-weight:700;letter-spacing:-.02em;color:rgba(255,255,255,.96);
+    }
+    h1{font-size:clamp(34px,4vw,52px);line-height:1.1}
+    h2{font-size:clamp(24px,2.8vw,36px);line-height:1.15}
+    h3{font-size:20px}
+
+    .wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+    .section{padding:64px 0}
+    .soft{background:var(--soft)}
+    .center{text-align:center}
+
+    .grid{display:grid;gap:var(--gap)}
+    .g2{grid-template-columns:1fr 1fr}
+    .g3{grid-template-columns:repeat(3,1fr)}
+    .g4{grid-template-columns:repeat(4,1fr)}
+    @media(max-width:980px){.g2,.g3{grid-template-columns:1fr}}
+    @media(max-width:1020px){.g4{grid-template-columns:1fr 1fr}}
+    @media(max-width:640px){.g4{grid-template-columns:1fr}}
+
+    .eyebrow{
+      font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+      color:var(--accent);font-weight:600;margin-bottom:6px;
+    }
+    .lead{font-size:clamp(16px,1.7vw,20px);color:var(--muted);line-height:1.6}
+    .mini{font-size:13px;color:var(--muted)}
+
+    .card{
+      border:1px solid var(--line);border-radius:var(--r);
+      background:rgba(255,255,255,.04);
+      transition:border-color .2s,transform .2s,box-shadow .2s;
+    }
+    .card:hover{
+      border-color:rgba(243,192,106,.25);
+      transform:translateY(-2px);
+      box-shadow:0 12px 36px rgba(0,0,0,.3);
+    }
+
+    .tag{
+      display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+      border-radius:999px;padding:6px 12px;font-size:12px;margin:4px 4px 0 0;color:rgba(255,255,255,.75);
+    }
+
+    /* ── Buttons ──────────────────────────────────────────── */
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      min-height:48px;padding:13px 24px;border-radius:999px;font-weight:800;font-size:15px;
+      text-decoration:none;white-space:nowrap;cursor:pointer;border:0;
+      transition:transform .12s,box-shadow .12s;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg,#F3C06A,#D99A3B);color:#071022;
+      box-shadow:0 8px 24px rgba(243,192,106,.25);
+    }
+    .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 32px rgba(243,192,106,.35)}
+    .btn-ghost{
+      border:2px solid rgba(255,255,255,.22);background:transparent;
+      color:rgba(255,255,255,.88);
+    }
+    .btn-ghost:hover{border-color:rgba(243,192,106,.4);color:#fff}
+
+    /* ── Sticky Nav ───────────────────────────────────────── */
+    .topnav{
+      position:sticky;top:0;z-index:100;
+      background:rgba(2,6,23,.82);
+      backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .topnav .wrap{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:16px;padding-top:13px;padding-bottom:13px;flex-wrap:wrap;
+    }
+    .wordmark{
+      font-family:"Space Grotesk",Inter,sans-serif;font-weight:700;
+      font-size:18px;letter-spacing:-.02em;color:rgba(255,255,255,.96);
+    }
+    .wordmark span{color:var(--accent)}
+    .nav-links{display:flex;align-items:center;gap:4px}
+    .nav-link{
+      color:rgba(255,255,255,.65);font-size:13px;font-weight:700;
+      padding:8px 12px;border-radius:8px;transition:color .15s,background .15s;
+    }
+    .nav-link:hover{color:#fff;background:rgba(255,255,255,.06)}
+    .nav-cta-wrap{display:flex;align-items:center;gap:8px}
+    .nav-login{
+      color:rgba(255,255,255,.65);font-size:13px;font-weight:700;
+      padding:8px 14px;border:1px solid rgba(255,255,255,.15);border-radius:999px;
+      transition:color .15s,border-color .15s;
+    }
+    .nav-login:hover{color:#fff;border-color:rgba(255,255,255,.3)}
+    .nav-cta{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:9px 18px;border-radius:999px;
+      background:linear-gradient(135deg,#F3C06A,#D99A3B);color:#071022;
+      font-size:13px;font-weight:900;letter-spacing:.01em;
+      box-shadow:0 6px 20px rgba(243,192,106,.22);
+      transition:transform .12s,box-shadow .12s;
+    }
+    .nav-cta:hover{transform:translateY(-1px);box-shadow:0 10px 28px rgba(243,192,106,.30)}
+
+    /* Mobile hamburger */
+    .hamburger{
+      display:none;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);
+      color:rgba(255,255,255,.92);border-radius:999px;padding:9px 14px;
+      font-size:13px;font-weight:700;cursor:pointer;align-items:center;gap:6px;
+    }
+    @media(max-width:900px){
+      .hamburger{display:inline-flex}
+      .nav-links,.nav-cta-wrap{
+        display:none;width:100%;flex-direction:column;align-items:stretch;
+        padding:10px 0;border-top:1px solid rgba(255,255,255,.08);
+      }
+      .nav-links.is-open,.nav-cta-wrap.is-open{display:flex}
+      .nav-link{padding:12px 4px}
+      .nav-login,.nav-cta{text-align:center;justify-content:center;border-radius:12px}
+    }
+
+    /* ── Hero ─────────────────────────────────────────────── */
+    .hero-section{padding:80px 0 64px}
+    .hero-inner{max-width:720px;margin:0 auto;text-align:center}
+    .hero-inner h1{margin-bottom:16px}
+    .hero-inner .lead{margin-bottom:16px}
+    .hero-tags{margin-bottom:20px}
+    .hero-tags .tag-gold{
+      background:rgba(243,192,106,.15);color:#F3C06A;border-color:rgba(243,192,106,.35);
+    }
+    .hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+    /* ── Feature Cards ────────────────────────────────────── */
+    .feat-card{padding:20px}
+    .feat-icon{
+      width:44px;height:44px;border-radius:12px;
+      background:rgba(243,192,106,.10);border:1px solid rgba(243,192,106,.20);
+      display:flex;align-items:center;justify-content:center;
+      margin-bottom:12px;font-size:20px;
+    }
+    .feat-card h3{font-size:17px;margin-bottom:6px}
+    .feat-card .mini{line-height:1.55}
+
+    /* ── Steps ────────────────────────────────────────────── */
+    .step-card{padding:24px;text-align:center}
+    .step-num{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:44px;height:44px;border-radius:50%;
+      background:linear-gradient(135deg,#F3C06A,#D99A3B);color:#071022;
+      font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;
+      margin-bottom:12px;
+    }
+    .step-card h3{margin-bottom:6px}
+
+    /* ── Industry Cards ───────────────────────────────────── */
+    .ind-card{padding:20px;text-align:center}
+    .ind-icon{font-size:32px;margin-bottom:10px;display:block}
+    .ind-card h3{font-size:16px;margin-bottom:4px}
+
+    /* ── Pricing ──────────────────────────────────────────── */
+    .price-card{padding:28px;display:flex;flex-direction:column}
+    .price-card.featured{border-color:rgba(243,192,106,.35);background:rgba(243,192,106,.04)}
+    .price-name{font-size:14px;font-weight:700;color:var(--accent);margin-bottom:4px}
+    .price-amount{
+      font-family:"Space Grotesk",sans-serif;font-size:42px;font-weight:700;
+      color:#fff;line-height:1;margin-bottom:4px;
+    }
+    .price-amount span{font-size:16px;font-weight:500;color:var(--muted)}
+    .price-desc{font-size:14px;color:var(--muted);margin-bottom:16px;line-height:1.5;flex:1}
+    .price-list{list-style:none;margin:0 0 20px;padding:0;font-size:14px;color:rgba(255,255,255,.70)}
+    .price-list li{padding:5px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+    .price-list li:last-child{border-bottom:0}
+    .price-list li::before{content:"✓ ";color:var(--accent);font-weight:700}
+
+    /* ── Testimonial ─────────────────────────────────────── */
+    .quote-card{padding:32px;position:relative}
+    .quote-card blockquote{
+      font-size:clamp(17px,2vw,22px);font-style:italic;
+      color:rgba(255,255,255,.85);line-height:1.55;margin:0 0 12px;
+    }
+    .quote-card cite{font-style:normal;font-size:14px;color:var(--accent);font-weight:600}
+    .stats-bar{
+      display:flex;gap:24px;flex-wrap:wrap;margin-top:16px;
+      padding-top:16px;border-top:1px solid var(--line);
+    }
+    .stat b{
+      display:block;font-family:"Space Grotesk",sans-serif;
+      font-size:28px;font-weight:700;color:#fff;
+    }
+    .stat span{font-size:12px;color:var(--muted)}
+
+    /* ── FAQ ──────────────────────────────────────────────── */
+    .faq-item{border-bottom:1px solid var(--line);padding:18px 0}
+    .faq-item:last-child{border-bottom:0}
+    .faq-q{
+      font-weight:700;color:#fff;font-size:16px;cursor:pointer;
+      display:flex;justify-content:space-between;align-items:center;gap:12px;
+    }
+    .faq-q::after{content:'+';font-size:22px;color:var(--accent);transition:transform .2s;flex-shrink:0}
+    .faq-item.open .faq-q::after{content:'\2212'}
+    .faq-a{
+      color:var(--muted);font-size:15px;line-height:1.6;
+      max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;padding-top:0;
+    }
+    .faq-item.open .faq-a{max-height:400px;padding-top:10px}
+
+    /* ── Bottom CTA ──────────────────────────────────────── */
+    .bottom-cta{
+      border:1px dashed rgba(243,192,106,.35);border-radius:var(--r);
+      background:rgba(243,192,106,.04);padding:40px 32px;text-align:center;
+    }
+    .bottom-cta h2{margin-bottom:8px}
+    .bottom-cta .lead{margin-bottom:20px}
+
+    /* ── Footer ───────────────────────────────────────────── */
+    .site-footer{
+      border-top:1px solid rgba(255,255,255,.07);padding:40px 0 24px;
+      font-size:14px;color:rgba(255,255,255,.45);
+    }
+    .footer-grid{
+      display:flex;justify-content:space-between;align-items:flex-start;
+      gap:32px;flex-wrap:wrap;margin-bottom:28px;
+    }
+    .footer-brand .wordmark{margin-bottom:6px}
+    .footer-links{display:flex;gap:24px;flex-wrap:wrap}
+    .footer-links a{color:rgba(255,255,255,.45);transition:color .15s}
+    .footer-links a:hover{color:var(--accent)}
+    .footer-copy{
+      padding-top:20px;border-top:1px solid rgba(255,255,255,.07);
+      display:flex;justify-content:space-between;align-items:center;
+      gap:16px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,.30);
+    }
+    .built{
+      background:linear-gradient(135deg,#F3C06A,#76C7FF);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+      font-weight:900;letter-spacing:.01em;
+    }
+  </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "ATJ.digital",
+      "description": "All-in-one business platform — CRM, funnels, email, SMS, calendars, automation workflows, reputation management, and AI tools. Replace 6+ tools with one login.",
+      "url": "https://atj.digital",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "97",
+        "highPrice": "397",
+        "priceCurrency": "USD",
+        "offerCount": "3"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "Automate the Journey, Inc.",
+        "url": "https://automatethejourney.com"
+      },
+      "featureList": [
+        "CRM & Pipeline Management",
+        "Funnels & Landing Pages",
+        "Email & SMS Marketing",
+        "Automation Workflows",
+        "Calendars & Scheduling",
+        "Multi-Channel Inbox",
+        "Reputation Management",
+        "AI Tools",
+        "Reporting & Attribution"
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Automate the Journey, Inc.",
+      "url": "https://automatethejourney.com",
+      "founder": {"@type": "Person", "name": "Tim Hershberger"},
+      "description": "Done-for-you marketing automation and GoHighLevel white-label SaaS for small service businesses."
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is ATJ.digital?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ATJ.digital is an all-in-one business platform that combines CRM, funnels, email, SMS, calendars, automation workflows, reputation management, and AI tools — so you can replace 6+ separate subscriptions with one login starting at $97/mo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is ATJ.digital different from signing up for GoHighLevel directly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You get the same GoHighLevel engine plus pre-built automations, funnel templates, onboarding support, and optional done-for-you setup from Automate the Journey. Think of it as GoHighLevel with training wheels — and a team behind you."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a free trial?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — every plan starts with a 30-day free trial. No commitment, cancel anytime. Your data and automations stay with you if you decide to continue."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I bring my existing tools and data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. We help migrate contacts, sequences, and funnels from tools like Mailchimp, ActiveCampaign, Calendly, and others. Most migrations complete within 48 hours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I already have a GoHighLevel account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can transfer your existing GHL sub-account into ATJ.digital to get access to our templates, automations, and support — or keep your current setup and just use our done-for-you services."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What kind of support do I get?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "All plans include onboarding, email support, and access to our knowledge base. Pro and Scale plans add priority Slack support and monthly strategy calls."
+          }
+        }
+      ]
+    }
+  ]
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NF35CPR6');</script>
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DNTBXSHMGX"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+    gtag('js',new Date());gtag('config','G-DNTBXSHMGX');
+  </script>
+</head>
+<body id="top">
+
+  <!-- GTM noscript -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NF35CPR6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <!-- ═══════════════════════════════════════════════════════
+       1. STICKY NAV
+       ═══════════════════════════════════════════════════════ -->
+  <nav class="topnav" aria-label="Primary">
+    <div class="wrap">
+      <a class="wordmark" href="/">ATJ<span>.digital</span></a>
+
+      <button class="hamburger" type="button" aria-expanded="false" aria-controls="navLinks navCta">
+        Menu <span style="opacity:.85">&#9776;</span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a class="nav-link" href="#features">Features</a>
+        <a class="nav-link" href="#pricing">Pricing</a>
+        <a class="nav-link" href="#faq">FAQ</a>
+      </div>
+
+      <div class="nav-cta-wrap" id="navCta">
+        <a class="nav-login" href="https://app.atj.digital">Login</a>
+        <a class="nav-cta" href="https://automatethejourney.com/marketing-automation/signup">
+          Start Free Trial <span style="opacity:.6">&#8594;</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════
+       2. HERO
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section hero-section soft">
+    <div class="wrap">
+      <div class="hero-inner">
+        <div class="eyebrow">All-in-one platform for service businesses</div>
+        <h1>One Platform.<br/>Every Client Touchpoint.</h1>
+        <p class="lead">
+          CRM, funnels, email, SMS, calendars, automation, reputation management,
+          and AI tools — replace the tool sprawl with one login that actually works together.
+        </p>
+        <div class="hero-tags">
+          <span class="tag tag-gold">30-Day Free Trial</span>
+          <span class="tag">Replaces 6+ Tools</span>
+          <span class="tag">$97/mo Starting</span>
+        </div>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="https://automatethejourney.com/marketing-automation/signup">
+            Start Your Free Trial
+          </a>
+          <a class="btn btn-ghost" href="https://automatethejourney.com/go_high_level/book-call-2">
+            Talk to Us First
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       3. FEATURES (9 cards)
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section" id="features">
+    <div class="wrap">
+      <div class="center" style="margin-bottom:32px">
+        <div class="eyebrow">Everything under one roof</div>
+        <h2>Built for Businesses That Are Tired of Tool Sprawl</h2>
+        <p class="lead" style="max-width:620px;margin:8px auto 0">Nine core capabilities that replace separate subscriptions for your CRM, email tool, funnel builder, scheduler, and more.</p>
+      </div>
+      <div class="grid g3">
+
+        <div class="card feat-card">
+          <div class="feat-icon">&#128202;</div>
+          <h3>CRM &amp; Pipeline</h3>
+          <p class="mini">Track every lead from first touch to closed deal. Custom stages, tasks, and notes — no more spreadsheet chaos.</p>
+        </div>
+
+        <div class="card feat-card">
+          <div class="feat-icon">&#127758;</div>
+          <h3>Funnels &amp; Landing Pages</h3>
+          <p class="mini">Drag-and-drop builder for high-converting pages and multi-step funnels. No designer or developer needed.</p>
+        </div>
+
+        <div class="card feat-card">
+          <div class="feat-icon">&#9993;</div>
+          <h3>Email &amp; SMS</h3>
+          <p class="mini">Broadcast campaigns, drip sequences, and two-way texting from one inbox — all tied to each contact's timeline.</p>
+        </div>
+
+        <div class="card feat-card">
+          <div class="feat-icon">&#9889;</div>
+          <h3>Automation Workflows</h3>
+          <p class="mini">If X happens, then Y fires — new lead, missed call, form filled, tag added. Reliable, every time, no code.</p>
+        </div>
+
+        <div class="card feat-card">
+          <div class="feat-icon">&#128197;</div>
+          <h3>Calendars &amp; Scheduling</h3>
+          <p class="mini">Shared calendars, round-robin routing, buffer times, and reminder sequences that cut no-shows by 25-40%.</p>
+        </div>
+
+        <div class="card feat-card">
+          <div class="feat-icon">&#128172;</div>
+          <h3>Multi-Channel Inbox</h3>
+          <p class="mini">SMS, email, calls, voicemails, webchat, Facebook, and Instagram DMs — all in one conversation thread.</p>
+        </div>
+
+        <div class="card feat-card">
+          <div class="feat-icon">&#11088;</div>
+          <h3>Reputation Management</h3>
+          <p class="mini">Automate review requests, monitor and respond to reviews, and build social proof that closes more deals.</p>
+        </div>
+
+        <div class="card feat-card">
+          <div class="feat-icon">&#129302;</div>
+          <h3>AI Tools</h3>
+          <p class="mini">AI-powered content writing, conversation bots, funnel copy, and workflow suggestions — built right in.</p>
+        </div>
+
+        <div class="card feat-card">
+          <div class="feat-icon">&#128200;</div>
+          <h3>Reporting &amp; Attribution</h3>
+          <p class="mini">See which campaigns bring leads, what's converting, and where to invest next. Simple dashboards, real numbers.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       4. HOW IT WORKS (3 steps)
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section soft">
+    <div class="wrap">
+      <div class="center" style="margin-bottom:32px">
+        <div class="eyebrow">Simple to start</div>
+        <h2>Up and Running in 3 Steps</h2>
+      </div>
+      <div class="grid g3">
+        <div class="card step-card">
+          <div class="step-num">1</div>
+          <h3>Sign Up</h3>
+          <p class="mini">Start your 30-day free trial in under 2 minutes. No credit card games — cancel anytime.</p>
+        </div>
+        <div class="card step-card">
+          <div class="step-num">2</div>
+          <h3>Set Up</h3>
+          <p class="mini">Use our pre-built templates or let our team configure CRM, funnels, and automations for you.</p>
+        </div>
+        <div class="card step-card">
+          <div class="step-num">3</div>
+          <h3>Launch</h3>
+          <p class="mini">Go live and start converting. Track results in real time and optimize as you grow.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       5. WHO IT'S FOR (6 industry cards)
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="center" style="margin-bottom:32px">
+        <div class="eyebrow">Built for your industry</div>
+        <h2>Who Uses ATJ.digital?</h2>
+        <p class="lead" style="max-width:560px;margin:8px auto 0">Pre-built templates and automations tailored to the way you actually work.</p>
+      </div>
+      <div class="grid g3">
+        <div class="card ind-card">
+          <span class="ind-icon">&#127891;</span>
+          <h3>Coaches &amp; Consultants</h3>
+          <p class="mini">Automated enrollment, instant booking, and nurture sequences that fill your calendar.</p>
+        </div>
+        <div class="card ind-card">
+          <span class="ind-icon">&#129656;</span>
+          <h3>Therapists &amp; Wellness</h3>
+          <p class="mini">HIPAA-aware intake, reminders, and review prompts that respect boundaries.</p>
+        </div>
+        <div class="card ind-card">
+          <span class="ind-icon">&#128295;</span>
+          <h3>Home Services</h3>
+          <p class="mini">Missed-call text-back, estimate follow-up, and review collection that wins more jobs.</p>
+        </div>
+        <div class="card ind-card">
+          <span class="ind-icon">&#9878;</span>
+          <h3>Professional Services</h3>
+          <p class="mini">Compliant intake, proposal workflows, and e-sign that shortens your close cycle.</p>
+        </div>
+        <div class="card ind-card">
+          <span class="ind-icon">&#127968;</span>
+          <h3>Real Estate</h3>
+          <p class="mini">Listing alerts, speed-to-lead automation, and follow-up drips that convert inquiries.</p>
+        </div>
+        <div class="card ind-card">
+          <span class="ind-icon">&#128640;</span>
+          <h3>Agencies</h3>
+          <p class="mini">White-label the platform for your clients, manage multiple accounts, and add recurring revenue.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       6. PRICING PREVIEW
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section soft" id="pricing">
+    <div class="wrap">
+      <div class="center" style="margin-bottom:32px">
+        <div class="eyebrow">Simple, transparent pricing</div>
+        <h2>Choose Your Plan</h2>
+        <p class="lead" style="max-width:560px;margin:8px auto 0">Every plan starts with a 30-day free trial. No long-term contracts.</p>
+      </div>
+      <div class="grid g3">
+
+        <div class="card price-card">
+          <div class="price-name">Starter</div>
+          <div class="price-amount">$97<span>/mo</span></div>
+          <p class="price-desc">Perfect for solo operators ready to consolidate their tools and start automating.</p>
+          <ul class="price-list">
+            <li>CRM &amp; Pipeline</li>
+            <li>Funnels &amp; Landing Pages</li>
+            <li>Email &amp; SMS</li>
+            <li>Calendars &amp; Scheduling</li>
+            <li>Unified Inbox</li>
+          </ul>
+          <a class="btn btn-ghost" style="width:100%" href="https://automatethejourney.com/marketing-automation/signup">Start Free Trial</a>
+        </div>
+
+        <div class="card price-card featured">
+          <div class="price-name">Pro — Most Popular</div>
+          <div class="price-amount">$197<span>/mo</span></div>
+          <p class="price-desc">Everything in Starter plus automation workflows, reputation management, and AI tools.</p>
+          <ul class="price-list">
+            <li>Everything in Starter</li>
+            <li>Automation Workflows</li>
+            <li>Reputation Management</li>
+            <li>AI Content &amp; Bots</li>
+            <li>Reporting &amp; Attribution</li>
+          </ul>
+          <a class="btn btn-primary" style="width:100%" href="https://automatethejourney.com/marketing-automation/signup">Start Free Trial</a>
+        </div>
+
+        <div class="card price-card">
+          <div class="price-name">Scale</div>
+          <div class="price-amount">$397<span>/mo</span></div>
+          <p class="price-desc">For growing teams and agencies. Unlimited sub-accounts, white-label, and priority support.</p>
+          <ul class="price-list">
+            <li>Everything in Pro</li>
+            <li>Unlimited Sub-Accounts</li>
+            <li>White-Label Branding</li>
+            <li>Priority Support</li>
+            <li>Monthly Strategy Calls</li>
+          </ul>
+          <a class="btn btn-ghost" style="width:100%" href="https://automatethejourney.com/marketing-automation/signup">Start Free Trial</a>
+        </div>
+
+      </div>
+      <p class="center mini" style="margin-top:20px">
+        Need a custom package? <a href="https://automatethejourney.com/marketing-automation/packages-pricing" style="color:var(--accent);font-weight:700;text-decoration:underline">See full pricing details &rarr;</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       7. TESTIMONIAL
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="card quote-card">
+        <blockquote>
+          &ldquo;We replaced Calendly, Mailchimp, and two other tools in one weekend.
+          Booked 19 consults in the first 10 days without lifting a finger.&rdquo;
+        </blockquote>
+        <cite>&mdash; Danielle M., Business Coach</cite>
+        <div class="stats-bar">
+          <div class="stat">
+            <b>6+</b>
+            <span>Tools Replaced</span>
+          </div>
+          <div class="stat">
+            <b>19</b>
+            <span>Consults in 10 Days</span>
+          </div>
+          <div class="stat">
+            <b>8-10 hrs</b>
+            <span>Saved Per Week</span>
+          </div>
+          <div class="stat">
+            <b>30%</b>
+            <span>Higher Close Rate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       8. FAQ
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section soft" id="faq">
+    <div class="wrap" style="max-width:760px">
+      <div class="center" style="margin-bottom:24px">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What is ATJ.digital?</div>
+        <div class="faq-a">ATJ.digital is an all-in-one business platform that combines CRM, funnels, email, SMS, calendars, automation workflows, reputation management, and AI tools — so you can replace 6+ separate subscriptions with one login starting at $97/mo.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">How is this different from signing up for GoHighLevel directly?</div>
+        <div class="faq-a">You get the same GoHighLevel engine plus pre-built automations, funnel templates, onboarding support, and optional done-for-you setup from Automate the Journey. Think of it as GoHighLevel with training wheels — and a team behind you.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Is there really a free trial?</div>
+        <div class="faq-a">Yes — every plan starts with a 30-day free trial. No credit card tricks. Your data and automations stay with you if you decide to continue, and you can cancel anytime.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Can I bring my existing tools and data?</div>
+        <div class="faq-a">Absolutely. We help migrate contacts, sequences, and funnels from tools like Mailchimp, ActiveCampaign, Calendly, and others. Most migrations complete within 48 hours.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What if I already have a GoHighLevel account?</div>
+        <div class="faq-a">You can transfer your existing GHL sub-account into ATJ.digital to get access to our templates, automations, and support — or keep your current setup and just use our done-for-you services.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What kind of support do I get?</div>
+        <div class="faq-a">All plans include onboarding, email support, and access to our knowledge base. Pro and Scale plans add priority Slack support and monthly strategy calls.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       9. BOTTOM CTA
+       ═══════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="bottom-cta">
+        <h2>Ready to Simplify Your Business?</h2>
+        <p class="lead">Start your 30-day free trial today. No credit card required. Cancel anytime.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <a class="btn btn-primary" href="https://automatethejourney.com/marketing-automation/signup">
+            Start Your Free Trial
+          </a>
+          <a class="btn btn-ghost" href="https://automatethejourney.com/go_high_level/book-call-2">
+            Talk to Us First
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       10. FOOTER
+       ═══════════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="wordmark" style="margin-bottom:6px">ATJ<span>.digital</span></div>
+          <p style="font-size:13px;color:rgba(255,255,255,.35);max-width:280px;line-height:1.5">
+            An all-in-one business platform by Automate the Journey, Inc.
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="https://automatethejourney.com/blog/">Blog</a>
+          <a href="https://automatethejourney.com/go_high_level/about">About</a>
+          <a href="https://automatethejourney.com/marketing-automation/contact">Contact</a>
+          <a href="https://automatethejourney.com/terms.html">Terms</a>
+          <a href="https://automatethejourney.com/privacy.html">Privacy</a>
+        </div>
+      </div>
+      <div class="footer-copy">
+        <span>&copy; <span id="footYear"></span> Automate the Journey, Inc. All rights reserved.</span>
+        <span class="built">Powered by GoHighLevel</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── Scripts ──────────────────────────────────────────── -->
+  <script>
+  (function(){
+    /* Footer year */
+    var y=document.getElementById('footYear');
+    if(y) y.textContent=new Date().getFullYear();
+
+    /* Hamburger toggle */
+    var btn=document.querySelector('.hamburger');
+    var links=document.getElementById('navLinks');
+    var cta=document.getElementById('navCta');
+    if(btn&&links&&cta){
+      btn.addEventListener('click',function(){
+        var open=links.classList.toggle('is-open');
+        cta.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded',open?'true':'false');
+      });
+      [links,cta].forEach(function(el){
+        el.querySelectorAll('a').forEach(function(a){
+          a.addEventListener('click',function(){
+            links.classList.remove('is-open');
+            cta.classList.remove('is-open');
+            btn.setAttribute('aria-expanded','false');
+          });
+        });
+      });
+      window.addEventListener('keydown',function(e){
+        if(e.key==='Escape'){
+          links.classList.remove('is-open');
+          cta.classList.remove('is-open');
+          btn.setAttribute('aria-expanded','false');
+        }
+      });
+    }
+
+    /* Smooth scroll for anchor links */
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click',function(e){
+        var id=a.getAttribute('href');
+        if(!id||id.length<2) return;
+        var target=document.querySelector(id);
+        if(!target) return;
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    });
+
+    /* FAQ toggle */
+    document.querySelectorAll('.faq-q').forEach(function(q){
+      q.addEventListener('click',function(){
+        this.closest('.faq-item').classList.toggle('open');
+      });
+    });
+  })();
+  </script>
+
+  <!-- RB2B -->
+  <script>
+  !function(){var reb2b=window.reb2b=window.reb2b||[];if(reb2b.invoked)return;reb2b.invoked=true;
+  reb2b.methods=["identify","collect"];reb2b.factory=function(method){return function(){
+  var args=Array.prototype.slice.call(arguments);args.unshift(method);reb2b.push(args);return reb2b}};
+  for(var i=0;i<reb2b.methods.length;i++){var key=reb2b.methods[i];reb2b[key]=reb2b.factory(key)}
+  reb2b.load=function(key){var script=document.createElement("script");script.type="text/javascript";
+  script.async=true;script.src="https://s3-us-west-2.amazonaws.com/b2bjsstore/b/"+key+"/1N4B6Z2I9PYB.js.gz";
+  var first=document.getElementsByTagName("script")[0];first.parentNode.insertBefore(script,first)};
+  reb2b.SNIPPET_VERSION="1.0.1";reb2b.load("1N4B6Z2I9PYB")}();
+  </script>
+
+  <!-- Leadfeeder -->
+  <script>
+  (function(ss,ex){window.ldfdr=window.ldfdr||function(){(ldfdr._q=ldfdr._q||[]).push([].slice.call(arguments))};
+  (function(d,s){fs=d.getElementsByTagName(s)[0];function ce(src){var cs=d.createElement(s);cs.src=src;
+  cs.async=1;fs.parentNode.insertBefore(cs,fs)};ce('https://sc.lfeeder.com/lftracker_v1_'+ss+(ex?'_'+ex:'')+'.js')
+  })(document,'script')})('DzLR5a5kKyaEBl3n');
+  </script>
+
+</body>
+</html>
